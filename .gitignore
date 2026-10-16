@@ -1,0 +1,22 @@
+# Private, git-ignored per this portfolio's convention -- learning files, not published
+WORKFLOW.md
+PROJECT_NARRATIVE.md
+INTERVIEW_QA.md
+INTERPRETATION.md
+
+# Raw input data -- reproducible by re-running Step 1's live fetch, not dumped into the repo
+data/
+
+# Old pre-rename copy of the executed notebook, kept locally only
+spatial_transcriptomics_visium_breast_cancer_ran_tired_hands_on_effort_practiced.ipynb
+
+# Blank/hint teaching scaffolds -- the clean, filled-in files are what get pushed
+spatial_transcriptomics_visium_breast_cancer.ipynb
+spatial_transcriptomics_visium_breast_cancer.R
+
+# Standard
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.Rhistory
+.RData
