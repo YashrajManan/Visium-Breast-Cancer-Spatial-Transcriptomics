@@ -99,15 +99,12 @@ of invasive ductal carcinoma tissue.
 
 ## Learning through project
 
-The real, non-trivial bug in this build wasn't in the analysis logic — it was in where results landed.
-`squidpy`/`scanpy`'s plotting functions default to writing `save=` figures into `./figures/` (scanpy's own
-`sc.settings.figdir` default), not into whatever output folder a script happens to `os.makedirs()` itself;
-the CSV exports (plain `pandas.to_csv` calls) were unaffected since they don't go through that setting at
-all. Caught by checking the real local filesystem after a run rather than assuming a `save="name.png"`
-argument writes wherever a results directory variable happens to be set — fixed by explicitly setting
-`sc.settings.figdir` once, in the same cell the results directory is created. A small thing, but a real
-example of why checking what a library's default behavior actually does beats assuming a parameter name
-implies a destination.
+The real, non-trivial lesson in this build wasn't in the analysis logic — it was in where results landed.
+A plotting library's `save=`-style argument can silently write to its own internal default location rather
+than wherever a results-directory variable happens to be set, with no error to flag the mismatch. Caught by
+checking the real local filesystem after a run rather than assuming a save argument writes wherever it
+looks like it should — a small thing, but a real example of why checking what a library's default behavior
+actually does beats assuming a parameter name implies a destination.
 
 ## Caveats
 
